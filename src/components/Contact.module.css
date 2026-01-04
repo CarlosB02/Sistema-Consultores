@@ -1,0 +1,185 @@
+.section {
+    padding: 6rem 5%;
+    background-color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardContainer {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 51, 102, 0.15);
+}
+
+/* LEFT PANEL (INFO) */
+.infoPanel {
+    flex: 1;
+    background: var(--color-primary);
+    /* #003366 */
+    color: white;
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle decorative circle in background of info panel */
+.infoPanel::before {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.infoTitle {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.infoSubtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.contactDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.detailItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.iconWrapper {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconWrapper svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-light-gray);
+}
+
+.detailItem p {
+    margin-top: 0.5rem;
+    /* align with icon */
+    font-size: 1rem;
+    color: white;
+}
+
+/* RIGHT PANEL (FORM) */
+.formPanel {
+    flex: 1.2;
+    padding: 3.5rem;
+    background: white;
+}
+
+.formTitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+    text-align: left;
+}
+
+.formGroup {
+    margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.formGroup input,
+.formGroup textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+    border-color: var(--color-accent);
+    background: white;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+.submitBtn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 1rem;
+}
+
+.submitBtn:hover {
+    background: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .cardContainer {
+        flex-direction: column;
+    }
+
+    .infoPanel,
+    .formPanel {
+        padding: 2.5rem;
+    }
+
+    .infoTitle {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 3rem 1rem;
+    }
+
+    .infoPanel,
+    .formPanel {
+        padding: 1.5rem;
+    }
+
+    .infoTitle {
+        font-size: 1.5rem;
+    }
+}

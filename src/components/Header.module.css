@@ -1,0 +1,267 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background-color: white;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    /* Subtler shadow */
+    height: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: auto;
+    max-height: 40px;
+    width: auto;
+    object-fit: contain;
+    transition: max-height 0.3s ease;
+}
+
+
+
+.navList {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    height: 100%;
+}
+
+.navItem {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navLink {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color 0.2s ease;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.navLink:hover {
+    color: var(--color-primary);
+}
+
+.contactBtn {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s;
+}
+
+.contactBtn:hover {
+    background-color: var(--color-secondary);
+}
+
+/* Dropdown Professional */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: -1rem;
+    background-color: white;
+    min-width: 240px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.navItem:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.navItem:not(:last-child):hover::after {
+    width: 100%;
+}
+
+.dropdown a {
+    padding: 0.8rem 1.5rem;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f5f5f5;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown a:last-child {
+    border-bottom: none;
+}
+
+.dropdown a::after {
+    content: '→';
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.2s ease;
+    color: var(--color-primary);
+    font-size: 1.1em;
+}
+
+.dropdown a:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+    padding-left: 1.5rem;
+    /* Reset padding shift or keep standard? User said "doesn't want weird rectangle", implying remove bg. */
+}
+
+.dropdown a:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--color-primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .logo {
+        max-height: 35px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        max-width: 300px;
+        background-color: white;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        padding: 6rem 2rem 2rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    .nav.open {
+        transform: translateX(0);
+    }
+
+    .navList {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        height: auto;
+    }
+
+    .navItem {
+        width: 100%;
+        display: block;
+        height: auto;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .navItem:last-child {
+        border-bottom: none;
+    }
+
+    .navLink {
+        display: block;
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+    }
+
+    .contactBtn {
+        display: inline-block;
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Mobile Dropdown - Accordion style */
+    .dropdown {
+        position: static;
+        box-shadow: none;
+        padding-left: 1rem;
+        padding-top: 0.5rem;
+        min-width: auto;
+        border-left: 2px solid #f0f0f0;
+        display: none;
+        background: transparent;
+    }
+
+    .navItem.mobileActive .dropdown {
+        display: block;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .dropdown a {
+        padding: 0.6rem 0;
+        border-bottom: none;
+        font-size: 0.95rem;
+    }
+
+    /* Hamburger Animation */
+    .hamburger.open span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

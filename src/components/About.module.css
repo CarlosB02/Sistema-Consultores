@@ -1,0 +1,142 @@
+.section {
+    padding: 6rem 2rem;
+    background-color: #ffffff;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Creative Geometric Background */
+.section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.03), rgba(0, 86, 179, 0.08));
+    transform: rotate(45deg);
+    border-radius: 60px;
+    z-index: -1;
+}
+
+.section::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+/* Additional geometric accent */
+.section {
+    background-image:
+        radial-gradient(#003366 0.5px, transparent 0.5px),
+        radial-gradient(#003366 0.5px, #ffffff 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    background-color: #ffffff;
+    /* Blend the dots with a gradient fade so they aren't overwhelming */
+    background-blend-mode: overlay;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.label {
+    text-transform: uppercase;
+    color: #003366;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    line-height: 1.2;
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4a5568;
+}
+
+.highlight {
+    font-weight: 600;
+    color: #0056b3;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.statItem {
+    border-left: 3px solid #003366;
+    padding-left: 1rem;
+}
+
+.statNumber {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 0.25rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.statLabel {
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+.imageContainer {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.aboutImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.imageContainer:hover .aboutImage {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,427 @@
+/* Attempt 3: Creative & Bold */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #0f172a;
+    /* Deep dark blue */
+    overflow: hidden;
+    color: white;
+    padding-top: 80px;
+    /* Header offset */
+}
+
+/* --- Ambient Interactions --- */
+.ambientEffects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.orb1,
+.orb2,
+.orb3 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.6;
+    animation: floatOrb 20s infinite alternate ease-in-out;
+}
+
+.orb1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #4f46e5 0%, transparent 70%);
+    top: -100px;
+    left: -100px;
+}
+
+.orb2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #06b6d4 0%, transparent 70%);
+    bottom: -50px;
+    right: -100px;
+    animation-delay: -5s;
+}
+
+.orb3 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #ec4899 0%, transparent 70%);
+    top: 40%;
+    left: 40%;
+    animation-duration: 15s;
+    opacity: 0.4;
+}
+
+/* --- Layout --- */
+.container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* --- Text Content --- */
+.textContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.badge {
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    margin-bottom: 2rem;
+    align-self: flex-start;
+    color: #cbd5e1;
+}
+
+.title {
+    font-size: 5rem;
+    line-height: 1;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    font-family: var(--font-main);
+}
+
+.outlineText {
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+    display: block;
+}
+
+.gradientText {
+    background: linear-gradient(to right, #ffffff, #67e8f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin-bottom: 3rem;
+    max-width: 90%;
+}
+
+/* --- Actions --- */
+.actions {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.ctaGlow {
+    padding: 1.2rem 2.5rem;
+    background: linear-gradient(90deg, #4f46e5, #06b6d4);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.ctaGlow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, #06b6d4, #4f46e5);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.ctaGlow:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+}
+
+.ctaGlow:hover::before {
+    opacity: 1;
+}
+
+.ctaGlass {
+    padding: 1.2rem 2.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s;
+}
+
+.ctaGlass:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.miniStats {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+
+.statDot {
+    width: 4px;
+    height: 4px;
+    background: #475569;
+    border-radius: 50%;
+}
+
+.stat b {
+    color: white;
+    font-size: 1.1rem;
+    margin-right: 0.3rem;
+}
+
+/* --- Visual Centerpiece (Glass Card) --- */
+.visualContent {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.glassCard {
+    width: 100%;
+    max-width: 450px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: rotateY(-15deg) rotateX(10deg);
+    transition: transform 0.5s ease;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.glassCard:hover {
+    transform: rotateY(-5deg) rotateX(5deg) scale(1.02);
+}
+
+.cardHeader {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.cardDotRed {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ef4444;
+}
+
+.cardDotYellow {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #eab308;
+}
+
+.cardDotGreen {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #22c55e;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 30px);
+    justify-content: flex-end;
+}
+
+.chartArea {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    height: 150px;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 40px;
+    border-radius: 4px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+}
+
+.bar1 {
+    height: 40%;
+    animation: growBar 2s infinite alternate;
+}
+
+.bar2 {
+    height: 70%;
+    animation: growBar 2.5s infinite alternate 0.5s;
+}
+
+.bar3 {
+    height: 100%;
+    background: linear-gradient(to top, #4f46e5, #06b6d4);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+}
+
+.cardStat {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+}
+
+.trendUp {
+    color: #22c55e;
+    font-weight: 700;
+}
+
+/* Abstract Floats */
+.float1 {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    border-radius: 12px;
+    transform: rotate(30deg);
+    animation: float 6s infinite ease-in-out;
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
+}
+
+.float2 {
+    position: absolute;
+    bottom: 50px;
+    left: -30px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    animation: float 8s infinite ease-in-out reverse;
+}
+
+/* Animations */
+@keyframes floatOrb {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(50px, 30px);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(30deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(35deg);
+    }
+}
+
+@keyframes growBar {
+    0% {
+        transform: scaleY(0.95);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .textContent {
+        align-items: center;
+    }
+
+    .subtitle {
+        margin: 0 auto 3rem;
+    }
+
+    .visualContent {
+        height: 350px;
+        perspective: none;
+    }
+
+    .glassCard {
+        transform: none;
+        max-width: 100%;
+        height: 300px;
+    }
+
+    .glassCard:hover {
+        transform: scale(1.02);
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    .actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .orb1,
+    .orb2,
+    .orb3 {
+        opacity: 0.4;
+    }
+}
