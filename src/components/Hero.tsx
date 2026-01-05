@@ -1,8 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Hero.module.css';
 import HeroGraph from './HeroGraph';
+import Reveal from './Reveal';
 
 const Hero: React.FC = () => {
+    const navigate = useNavigate();
+
     return (
         <section className={styles.hero} id="inicio">
             {/* Ambient Background Effects */}
@@ -16,46 +20,52 @@ const Hero: React.FC = () => {
                 <div className={styles.grid}>
                     {/* Left: Text Content */}
                     <div className={styles.textContent}>
-                        <h1 className={styles.title}>
-                            <span className={styles.outlineText}>Crescimento</span>
-                            <span className={styles.gradientText}>Sem Limites</span>
-                        </h1>
-                        <p className={styles.subtitle}>
-                            Redefinimos o futuro do seu negócio com consultoria de alto impacto. Soluções ousadas para resultados extraordinários.
-                        </p>
+                        <Reveal>
+                            <h1 className={styles.title}>
+                                <span className={styles.outlineText}>Crescimento</span>
+                                <span className={styles.gradientText}>Sem Limites</span>
+                            </h1>
+                        </Reveal>
+                        <Reveal delay={0.4}>
+                            <p className={styles.subtitle}>
+                                Redefinimos o futuro do seu negócio com consultoria de alto impacto. Soluções ousadas para resultados extraordinários.
+                            </p>
+                        </Reveal>
 
-                        <div className={styles.actions}>
-                            <a href="#contactos" className={styles.ctaGlow}>
-                                Iniciar Transformação
-                            </a>
-                            <a href="#servicos" className={styles.ctaGlass}>
-                                Explorar Soluções
-                            </a>
-                        </div>
-
-
+                        <Reveal delay={0.6}>
+                            <div className={styles.actions}>
+                                <a href="#contactos" className={styles.ctaGlow}>
+                                    Iniciar Transformação
+                                </a>
+                                <a href="#services" className={styles.ctaGlass}>
+                                    Explorar Soluções
+                                </a>
+                            </div>
+                        </Reveal>
                     </div>
 
                     {/* Right: Visual Centerpiece */}
                     <div className={styles.visualContent}>
-                        <div className={styles.glassCard}>
-                            <div className={styles.cardInner}>
-                                <div className={styles.cardHeader}>
-                                    <div className={styles.cardDotRed}></div>
-                                    <div className={styles.cardDotYellow}></div>
-                                    <div className={styles.cardDotGreen}></div>
-                                </div>
-                                <div className={styles.cardBody}>
-                                    <div className={styles.chartArea}>
-                                        <HeroGraph />
+                        <Reveal delay={0.8} direction="left" width="fit-content">
+                            <div className={styles.glassCard}>
+                                <div className={styles.cardInner}>
+                                    <div className={styles.cardHeader}>
+                                        <div className={styles.cardDotRed}></div>
+                                        <div className={styles.cardDotYellow}></div>
+                                        <div className={styles.cardDotGreen}></div>
                                     </div>
-                                    <div className={styles.cardStat}>
-                                        <span className={styles.trendUp}>▲ 124%</span>
-                                        <span>Crescimento Anual</span>
+                                    <div className={styles.cardBody}>
+                                        <div className={styles.chartArea}>
+                                            <HeroGraph />
+                                        </div>
+                                        <div className={styles.cardStat}>
+                                            <span className={styles.trendUp}>▲ 124%</span>
+                                            <span>Crescimento Anual</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </Reveal>
 
                         {/* Abstract floating elements */}
                         <div className={styles.float1}></div>

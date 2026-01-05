@@ -10,6 +10,7 @@ import imgFiscal from '../assets/fiscal_advice_service.png';
 import imgConsulting from '../assets/external_consulting_service.png';
 // Removed imgDashboard import as it is replaced by AnimatedDashboard
 import AnimatedDashboard from '../components/AnimatedDashboard';
+import Contact from '../components/Contact';
 
 const Accounting: React.FC = () => {
 
@@ -20,32 +21,32 @@ const Accounting: React.FC = () => {
     const features = [
         {
             title: "Contabilidade Organizada",
-            desc: "Muito mais que cumprir obrigações fiscais. A nossa contabilidade analítica e simplificada oferece uma visão clara da saúde financeira da sua empresa.",
+            desc: "Contabilidade analítica que oferece uma visão clara da saúde financeira da sua empresa.",
             image: imgOrganized
         },
         {
             title: "Gestão de Recursos Humanos",
-            desc: "Processamento salarial rigoroso, gestão de contratos e cumprimento de todas as obrigações laborais, garantindo a satisfação da sua equipa.",
+            desc: "Processamento salarial rigoroso e gestão completa de contratos e obrigações.",
             image: imgHR
         },
         {
             title: "Gestão de Ativos",
-            desc: "Controlo total sobre o seu património. Acompanhamento de depreciações, abates e valorizações para uma gestão patrimonial eficiente.",
+            desc: "Controlo total sobre o seu património, depreciações e valorizações.",
             image: imgAssets
         },
         {
             title: "Gestão Comercial",
-            desc: "Integração perfeita entre vendas e contabilidade. Apoio na faturação e análise de rentabilidade por cliente ou produto.",
+            desc: "Apoio na faturação e análise de rentabilidade por cliente ou produto.",
             image: imgCommercial
         },
         {
             title: "Aconselhamento Fiscal",
-            desc: "Planeamento fiscal estratégico para otimizar a carga tributária da sua empresa dentro do quadro legal vigente.",
+            desc: "Planeamento fiscal estratégico para otimizar a carga tributária da sua empresa.",
             image: imgFiscal
         },
         {
             title: "Consultoria Externa",
-            desc: "Uma visão imparcial e especializada para apoiar decisões críticas, reestruturações ou planos de expansão do seu negócio.",
+            desc: "Visão imparcial para apoiar decisões críticas e planos de expansão.",
             image: imgConsulting
         }
     ];
@@ -77,6 +78,20 @@ const Accounting: React.FC = () => {
                                 <div className={styles.details}>
                                     <div className={styles.separator}></div>
                                     <p className={styles.cardText}>{feature.desc}</p>
+                                    <button
+                                        className={styles.cardBtn}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            const contactSection = document.getElementById('contactos');
+                                            if (contactSection) {
+                                                contactSection.scrollIntoView({ behavior: 'smooth' });
+                                            } else {
+                                                window.location.href = '/#contactos';
+                                            }
+                                        }}
+                                    >
+                                        Falar com Especialista
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -132,6 +147,9 @@ const Accounting: React.FC = () => {
                     Falar com um Consultor
                 </button>
             </section>
+
+            {/* Contact Section */}
+            <Contact />
         </div>
     );
 };

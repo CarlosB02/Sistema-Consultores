@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
                     <h3 className={styles.colTitle}>CONTACTOS</h3>
                     <p className={styles.contactInfo}>
                         <strong>Email:</strong> sistema@sistemaconsultores.pt<br />
-                        <strong>Email:</strong> formacao@sistemaconsultores.pt<br />
+                        <strong></strong> formacao@sistemaconsultores.pt<br />
                         <strong>Tel:</strong> +351 232 400 360 <span className={styles.note}>(a)</span><br />
                         <strong>Tlm:</strong> +351 931 177 336 <span className={styles.note}>(b)</span>
                     </p>
@@ -33,20 +33,18 @@ const Footer: React.FC = () => {
                 <div className={styles.column}>
                     <h3 className={styles.colTitle}>Serviços</h3>
                     <ul className={styles.linkList}>
-                        <li><a href="#">Quem somos!</a></li>
-                        <li><a href="#">Projetos de Investimento</a></li>
+                        <li><a href="/incentivos-portugal-2020">Incentivos Financeiros</a></li>
+                        <li><a href="/contabilidade">Contabilidade</a></li>
                         <li><a href="#">Criação de Empresas</a></li>
-                        <li><a href="#">Marketing</a></li>
+                        <li><a href="/oferta-formativa">Formações</a></li>
                     </ul>
                 </div>
 
                 <div className={styles.column}>
-                    <h3 className={styles.colTitle}>Áreas de Atuação</h3>
+                    <h3 className={styles.colTitle}>Certificação e Formação</h3>
                     <ul className={styles.linkList}>
-                        <li><a href="#">PORTUGAL 2020 / 2030</a></li>
-                        <li><a href="#">PDR 2020</a></li>
-                        <li><a href="#">Certificação de Empresas</a></li>
-                        <li><a href="#">Oferta Formativa</a></li>
+                        <li><a href="/certificacoes">Certificação de empresas</a></li>
+                        <li><a href="/oferta-formativa">Oferta formativa</a></li>
                         <li><a href="#">Plataforma E-learning</a></li>
                     </ul>
                 </div>

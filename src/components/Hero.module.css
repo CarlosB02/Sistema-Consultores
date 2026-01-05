@@ -8,8 +8,10 @@
     /* Deep dark blue */
     overflow: hidden;
     color: white;
-    padding-top: 80px;
-    /* Header offset */
+    padding-top: 160px;
+    /* Header offset + spacer */
+    margin-top: -80px;
+    /* Pull behind header */
 }
 
 /* --- Ambient Interactions --- */

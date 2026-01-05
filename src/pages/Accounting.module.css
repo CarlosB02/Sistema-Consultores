@@ -77,7 +77,7 @@
 }
 
 .heroBtn {
-    background-color: #ed8936;
+    background-color: #3182ce;
     color: white;
     padding: 15px 40px;
     border-radius: 50px;
@@ -92,8 +92,8 @@
 
 .heroBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(237, 137, 54, 0.4);
-    background-color: #dd6b20;
+    box-shadow: 0 10px 20px rgba(49, 130, 206, 0.4);
+    background-color: #2c5282;
 }
 
 /* Services Grid */
@@ -186,7 +186,7 @@
 }
 
 .card:hover .details {
-    max-height: 200px;
+    max-height: 300px;
     opacity: 1;
 }
 
@@ -198,9 +198,38 @@
 }
 
 .cardText {
-    color: #e2e8f0;
-    line-height: 1.6;
     font-size: 0.95rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.cardBtn {
+    background-color: transparent;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 2px solid white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    /* Prevent clicking when hidden */
+}
+
+.card:hover .cardBtn {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+}
+
+.cardBtn:hover {
+    background-color: white;
+    color: #3182ce;
+    transform: translateY(-2px);
 }
 
 /* Dashboards Section */

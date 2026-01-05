@@ -10,6 +10,11 @@
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.headerHidden {
+    transform: translateY(-100%);
 }
 
 .logoContainer {
@@ -260,8 +265,41 @@
         transform: translateY(-5px);
     }
 
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Header Transparent State for Hero */
+.headerTransparent {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.headerTransparent .navLink {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.headerTransparent .navLink:hover {
+    color: white;
+}
+
+.headerTransparent .logo {
+    filter: brightness(0) invert(1);
+}
+
+.headerTransparent .hamburger span {
+    background-color: white;
+}
+
+.headerTransparent .contactBtn {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.headerTransparent .contactBtn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
 }

@@ -1,12 +1,50 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
 import logo from '../assets/logo.png';
 
 const Header: React.FC = () => {
+    const location = useLocation();
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [mobileActiveDropdown, setMobileActiveDropdown] = useState<string | null>(null);
+    const [isVisible, setIsVisible] = useState(true);
+    const [isTransparent, setIsTransparent] = useState(false);
+    const lastScrollY = useRef(0);
+
+    const isHome = location.pathname === '/';
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            const heroHeight = window.innerHeight - 80; // Buffer for transition
+
+            // Smart Header Visibility
+            if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+                setIsVisible(false);
+            } else {
+                setIsVisible(true);
+            }
+
+            // Transparent Header Logic
+            if (isHome && currentScrollY < heroHeight) {
+                setIsTransparent(true);
+            } else {
+                setIsTransparent(false);
+            }
+
+            lastScrollY.current = currentScrollY;
+        };
+
+        // Initial check
+        handleScroll();
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [isHome]); // Re-run effect when route changes/isHome changes
 
     const handleMouseEnter = (menu: string) => {
         if (window.innerWidth > 768) {
@@ -40,7 +78,9 @@ const Header: React.FC = () => {
     };
 
     return (
-        <header className={styles.header}>
+        <header
+            className={`${styles.header} ${!isVisible ? styles.headerHidden : ''} ${isTransparent ? styles.headerTransparent : ''}`}
+        >
             <div className={styles.logoContainer}>
                 <Link to="/" onClick={closeMobileMenu}>
                     <img src={logo} alt="Sistema Consultores" className={styles.logo} />
@@ -67,13 +107,13 @@ const Header: React.FC = () => {
                         onMouseEnter={() => handleMouseEnter('incentivos')}
                         onMouseLeave={handleMouseLeave}
                     >
-                        <a
-                            href="#incentivos"
+                        <Link
+                            to="/incentivos-portugal-2020"
                             className={styles.navLink}
                             onClick={(e) => toggleMobileDropdown('incentivos', e)}
                         >
                             Incentivos
-                        </a>
+                        </Link>
                         {(activeDropdown === 'incentivos' || mobileActiveDropdown === 'incentivos') && (
                             <ul className={styles.dropdown}>
                                 <li onClick={closeMobileMenu}><Link to="/incentivos-portugal-2020">Portugal 2020</Link></li>
@@ -105,8 +145,8 @@ const Header: React.FC = () => {
                         </a>
                         {(activeDropdown === 'formacao' || mobileActiveDropdown === 'formacao') && (
                             <ul className={styles.dropdown}>
-                                <li onClick={closeMobileMenu}><a href="#oferta">Oferta Formativa</a></li>
-                                <li onClick={closeMobileMenu}><a href="#elearning">Plataforma E-Learning</a></li>
+                                <li onClick={closeMobileMenu}><Link to="/oferta-formativa">Oferta Formativa</Link></li>
+                                <li onClick={closeMobileMenu}><Link to="/oferta-formativa#elearning">Plataforma E-Learning</Link></li>
                             </ul>
                         )}
                     </li>

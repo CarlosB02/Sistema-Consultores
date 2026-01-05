@@ -45,6 +45,8 @@ const IncentivosPortugal2020: React.FC = () => {
         { id: 'producao-nacional', label: 'Produção Nacional' }
     ];
 
+    const [isFormOpen, setIsFormOpen] = useState(false);
+
     return (
         <div style={{ paddingTop: '0', fontFamily: "'Poppins', sans-serif" }}>
             <PageNavigator sections={navSections} />
@@ -66,7 +68,7 @@ const IncentivosPortugal2020: React.FC = () => {
                             </p>
 
                             <div className={styles.buttonGroup}>
-                                <button className={styles.primaryBtn} onClick={() => window.location.href = '#contactos'}>
+                                <button className={styles.primaryBtn} onClick={() => setIsFormOpen(true)}>
                                     Validar Elegibilidade
                                 </button>
                                 <button className={styles.secondaryBtn} onClick={(e) => {
@@ -79,31 +81,37 @@ const IncentivosPortugal2020: React.FC = () => {
                         </div>
 
                         <div className={styles.visualContainer}>
-                            <div className={styles.fundingPath}>
-                                <div className={styles.connector}></div>
-
-                                {/* Step 1: Strategy */}
-                                <div className={`${styles.stepNode} ${styles.step1}`}>
-                                    <div className={`${styles.stepIcon} ${styles.icon1}`}>
-                                        📊
-                                    </div>
-                                    <div className={styles.stepTitle}>Diagnóstico</div>
-                                    <div className={styles.stepDesc}>Análise de viabilidade gratuita</div>
+                            <div className={styles.financeCard}>
+                                <div className={styles.cardHeader}>
+                                    <div className={styles.cardIcon}>💰</div>
+                                    <div className={styles.cardTitle}>Incentivos Financeiros</div>
                                 </div>
-
-                                {/* Step 2: Funding */}
-                                <div className={`${styles.stepNode} ${styles.step2}`}>
-                                    <div className={`${styles.stepIcon} ${styles.icon2}`}>
-                                        🚀
+                                <div className={styles.cardStat}>
+                                    <div className={styles.statLabel}>Financiamento a Fundo Perdido</div>
+                                    <div className={styles.statValue}>
+                                        Até <CountUp end={75} suffix="%" />
                                     </div>
-                                    <div className={styles.stepTitle}>Aprovação</div>
-                                    <div className={styles.stepDesc}>Acompanhamento até ao sucesso</div>
                                 </div>
+                                <ul className={styles.checkList}>
+                                    <li className={styles.checkItem}>
+                                        <span className={styles.checkIcon}>
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L4.5 8.5L2 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                        </span>
+                                        Aumentar Resultados da Empresa
+                                    </li>
+                                    <li className={styles.checkItem}>
+                                        <span className={styles.checkIcon}>
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L4.5 8.5L2 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                        </span>
+                                        Candidaturas Simplificadas
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
 
             {/* Inovação Produtiva */}
             <section id="inovacao" style={{ padding: '100px 20px', maxWidth: '1280px', margin: '0 auto', position: 'relative' }}>
@@ -408,7 +416,9 @@ const IncentivosPortugal2020: React.FC = () => {
                             padding: '40px',
                             borderRadius: '20px',
                             border: '1px solid rgba(255,255,255,0.2)',
-                            boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
+                            boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
+                            display: 'flex',
+                            flexDirection: 'column'
                         }}>
                             <div style={{ fontSize: '3rem', marginBottom: '20px' }}>🧑‍🌾</div>
                             <h3 style={{ fontSize: '2rem', marginBottom: '15px', color: 'white' }}>Jovens Agricultores</h3>
@@ -426,6 +436,21 @@ const IncentivosPortugal2020: React.FC = () => {
                                 <li style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}><span style={{ color: '#4ade80', marginRight: '10px' }}>✓</span> +€5.000 se investimento ≥ €80k</li>
                                 <li style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}><span style={{ color: '#4ade80', marginRight: '10px' }}>✓</span> +€5.000 em regime exclusividade</li>
                             </ul>
+                            <button style={{
+                                width: '100%',
+                                padding: '12px',
+                                background: '#16a34a',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: '50px',
+                                fontWeight: 'bold',
+                                fontSize: '1rem',
+                                cursor: 'pointer',
+                                marginTop: 'auto',
+                                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                            }} onClick={() => window.location.href = '#contactos'}>
+                                Saber Mais
+                            </button>
                         </div>
 
                         {/* Investimento Exploração Card */}
@@ -435,7 +460,9 @@ const IncentivosPortugal2020: React.FC = () => {
                             padding: '40px',
                             borderRadius: '20px',
                             border: '1px solid rgba(255,255,255,0.2)',
-                            boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
+                            boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
+                            display: 'flex',
+                            flexDirection: 'column'
                         }}>
                             <div style={{ fontSize: '3rem', marginBottom: '20px' }}>🚜</div>
                             <h3 style={{ fontSize: '2rem', marginBottom: '15px', color: 'white' }}>Investimento Agrícola</h3>
@@ -449,6 +476,21 @@ const IncentivosPortugal2020: React.FC = () => {
                                     <span key={item} style={{ background: 'rgba(255,255,255,0.15)', padding: '8px 15px', borderRadius: '50px', fontSize: '0.9rem' }}>{item}</span>
                                 ))}
                             </div>
+                            <button style={{
+                                width: '100%',
+                                padding: '12px',
+                                background: '#16a34a',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: '50px',
+                                fontWeight: 'bold',
+                                fontSize: '1rem',
+                                cursor: 'pointer',
+                                marginTop: 'auto', // Changed to auto for alignment
+                                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                            }} onClick={() => window.location.href = '#contactos'}>
+                                Saber Mais
+                            </button>
                         </div>
                     </div>
 
@@ -479,6 +521,20 @@ const IncentivosPortugal2020: React.FC = () => {
                                     <div style={{ opacity: 0.8, fontSize: '0.9rem' }}>Limite de Apoio</div>
                                 </div>
                             </div>
+                            <button style={{
+                                padding: '12px 24px',
+                                background: 'white',
+                                color: '#064e3b',
+                                border: 'none',
+                                borderRadius: '50px',
+                                fontWeight: 'bold',
+                                fontSize: '1rem',
+                                cursor: 'pointer',
+                                marginTop: '30px',
+                                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                            }} onClick={() => window.location.href = '#contactos'}>
+                                Saber Mais
+                            </button>
                         </div>
                         <div style={{ flex: '1 1 300px', background: 'rgba(0,0,0,0.2)', padding: '30px', borderRadius: '15px' }}>
                             <h4 style={{ marginBottom: '20px', color: '#6ee7b7' }}>Áreas de Aposta</h4>
@@ -560,7 +616,17 @@ const IncentivosPortugal2020: React.FC = () => {
                 </div>
             </section>
 
-            <AnalysisForm />
+            {/* Contactos / Formulário Section */}
+            <section id="contactos" style={{ padding: '80px 20px', backgroundColor: '#f8fafc' }}>
+                <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
+                    <h2 style={{ fontSize: '2.5rem', color: '#1e3a8a', marginBottom: '40px' }}>
+                        Pronto para impulsionar o seu negócio?
+                    </h2>
+                    <AnalysisForm isOpen={true} onClose={() => { }} isEmbedded={true} />
+                </div>
+            </section>
+
+            <AnalysisForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
         </div>
     );
 };
