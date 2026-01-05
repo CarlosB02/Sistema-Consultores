@@ -277,10 +277,40 @@
 
 /* CTA Section */
 .ctaSection {
-    background: #2c5282;
+    background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
     color: white;
     text-align: center;
-    padding: 80px 20px;
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 60px auto;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.ctaSection::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.ctaSection::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(237, 137, 54, 0.1) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
 .ctaTitle {

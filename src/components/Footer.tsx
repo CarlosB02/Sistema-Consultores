@@ -17,10 +17,13 @@ const Footer: React.FC = () => {
                     <h3 className={styles.colTitle}>CONTACTOS</h3>
                     <p className={styles.contactInfo}>
                         <strong>Email:</strong> sistema@sistemaconsultores.pt<br />
-                        <strong>Tel:</strong> +351 232 400 360 <span className={styles.note}>(a)</span>
+                        <strong>Email:</strong> formacao@sistemaconsultores.pt<br />
+                        <strong>Tel:</strong> +351 232 400 360 <span className={styles.note}>(a)</span><br />
+                        <strong>Tlm:</strong> +351 931 177 336 <span className={styles.note}>(b)</span>
                     </p>
                     <p className={styles.smallNote}>
-                        (a) Chamada para a rede fixa nacional.
+                        (a) Chamada para a rede fixa nacional.<br />
+                        (b) Chamada para a rede móvel nacional.
                     </p>
                     <p className={styles.copyright}>
                         &copy; {new Date().getFullYear()} Sistema Consultores. Todos os direitos reservados.

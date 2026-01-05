@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import IncentivosPortugal2020 from './pages/IncentivosPortugal2020';
 import Accounting from './pages/Accounting';
+import Certificacoes from './pages/Certificacoes';
+import Contactos from './pages/Contactos';
 import Footer from './components/Footer';
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/incentivos-portugal-2020" element={<IncentivosPortugal2020 />} />
         <Route path="/contabilidade" element={<Accounting />} />
+        <Route path="/certificacoes" element={<Certificacoes />} />
+        <Route path="/contactos" element={<Contactos />} />
       </Routes>
       <Footer />
     </div>

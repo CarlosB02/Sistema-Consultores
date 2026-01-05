@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CountUp from './CountUp';
 import styles from './AnimatedDashboard.module.css';
 
 const AnimatedDashboard: React.FC = () => {
@@ -33,7 +34,9 @@ const AnimatedDashboard: React.FC = () => {
                         <div className={styles.mainChart}>
                             <div className={styles.chartHeader}>
                                 <span className={styles.chartTitle}>Crescimento Anual</span>
-                                <span className={styles.chartValue}>+127%</span>
+                                <span className={styles.chartValue}>
+                                    <CountUp end={127} prefix="+" suffix="%" duration={2.5} />
+                                </span>
                             </div>
                             <div className={styles.chartArea}>
                                 <svg viewBox="0 0 300 150" className={styles.graphSvg}>
@@ -78,17 +81,23 @@ const AnimatedDashboard: React.FC = () => {
                         <div className={styles.sideStats}>
                             <div className={styles.statCard}>
                                 <div className={styles.statLabel}>Receita</div>
-                                <div className={styles.statValue}>€ 45.2k</div>
+                                <div className={styles.statValue}>
+                                    <CountUp end={45.2} decimals={1} prefix="€ " suffix="k" duration={2000} />
+                                </div>
                                 <div className={styles.statIndicator}>↑ 12%</div>
                             </div>
                             <div className={styles.statCard}>
                                 <div className={styles.statLabel}>Despesas</div>
-                                <div className={styles.statValue}>€ 12.8k</div>
+                                <div className={styles.statValue}>
+                                    <CountUp end={12.8} decimals={1} prefix="€ " suffix="k" duration={2000} />
+                                </div>
                                 <div className={styles.statIndicatorDown}>↓ 5%</div>
                             </div>
                             <div className={styles.statCard}>
                                 <div className={styles.statLabel}>Lucro Líquido</div>
-                                <div className={styles.statValue}>€ 32.4k</div>
+                                <div className={styles.statValue}>
+                                    <CountUp end={32.4} decimals={1} prefix="€ " suffix="k" duration={2000} />
+                                </div>
                                 <div className={styles.statIndicator}>↑ 18%</div>
                             </div>
                         </div>
@@ -127,28 +136,28 @@ const AnimatedDashboard: React.FC = () => {
                             <div className={styles.progressItem}>
                                 <div className={styles.progressHeader}>
                                     <span>Pessoal</span>
-                                    <span>45%</span>
+                                    <span><CountUp end={45} suffix="%" duration={1.5} delay={0} /></span>
                                 </div>
                                 <div className={styles.progressTrack}>
-                                    <div className={styles.progressBar} style={{ width: '45%', background: '#3182ce' }}></div>
+                                    <div className={styles.progressBar} style={{ width: '100%', transform: 'scaleX(0.45)', background: '#3182ce', animationDelay: '0s' }}></div>
                                 </div>
                             </div>
                             <div className={styles.progressItem}>
                                 <div className={styles.progressHeader}>
                                     <span>Fornecedores</span>
-                                    <span>30%</span>
+                                    <span><CountUp end={30} suffix="%" duration={1.5} delay={0.2} /></span>
                                 </div>
                                 <div className={styles.progressTrack}>
-                                    <div className={styles.progressBar} style={{ width: '30%', background: '#ed8936' }}></div>
+                                    <div className={styles.progressBar} style={{ width: '100%', transform: 'scaleX(0.30)', background: '#ed8936', animationDelay: '0.2s' }}></div>
                                 </div>
                             </div>
                             <div className={styles.progressItem}>
                                 <div className={styles.progressHeader}>
                                     <span>Impostos</span>
-                                    <span>25%</span>
+                                    <span><CountUp end={25} suffix="%" duration={1.5} delay={0.4} /></span>
                                 </div>
                                 <div className={styles.progressTrack}>
-                                    <div className={styles.progressBar} style={{ width: '25%', background: '#48bb78' }}></div>
+                                    <div className={styles.progressBar} style={{ width: '100%', transform: 'scaleX(0.25)', background: '#48bb78', animationDelay: '0.4s' }}></div>
                                 </div>
                             </div>
                         </div>

@@ -77,8 +77,8 @@ const Header: React.FC = () => {
                         {(activeDropdown === 'incentivos' || mobileActiveDropdown === 'incentivos') && (
                             <ul className={styles.dropdown}>
                                 <li onClick={closeMobileMenu}><Link to="/incentivos-portugal-2020">Portugal 2020</Link></li>
-                                <li onClick={closeMobileMenu}><a href="#pdr2020">PDR 2020</a></li>
-                                <li onClick={closeMobileMenu}><a href="#empreendedorismo">Empreendedorismo</a></li>
+                                <li onClick={closeMobileMenu}><Link to="/incentivos-portugal-2020#pdr2020">PDR 2020</Link></li>
+                                <li onClick={closeMobileMenu}><Link to="/incentivos-portugal-2020#empreendedorismo">Empreendedorismo</Link></li>
                             </ul>
                         )}
                     </li>
@@ -87,27 +87,8 @@ const Header: React.FC = () => {
                         <Link to="/contabilidade" className={styles.navLink}>Contabilidade</Link>
                     </li>
 
-                    <li
-                        className={`${styles.navItem} ${mobileActiveDropdown === 'certificacao' ? styles.mobileActive : ''}`}
-                        onMouseEnter={() => handleMouseEnter('certificacao')}
-                        onMouseLeave={handleMouseLeave}
-                    >
-                        <a
-                            href="#certificacao"
-                            className={styles.navLink}
-                            onClick={(e) => toggleMobileDropdown('certificacao', e)}
-                        >
-                            Certificação
-                        </a>
-                        {(activeDropdown === 'certificacao' || mobileActiveDropdown === 'certificacao') && (
-                            <ul className={styles.dropdown}>
-                                <li onClick={closeMobileMenu}><a href="#qualidade">Gestão da Qualidade</a></li>
-                                <li onClick={closeMobileMenu}><a href="#ambiental">Gestão Ambiental</a></li>
-                                <li onClick={closeMobileMenu}><a href="#alimentar">Segurança Alimentar</a></li>
-                                <li onClick={closeMobileMenu}><a href="#social">Responsabilidade Social</a></li>
-                                <li onClick={closeMobileMenu}><a href="#rgpd">RGPD</a></li>
-                            </ul>
-                        )}
+                    <li className={styles.navItem} onClick={closeMobileMenu}>
+                        <Link to="/certificacoes" className={styles.navLink}>Certificações</Link>
                     </li>
 
                     <li
@@ -131,7 +112,7 @@ const Header: React.FC = () => {
                     </li>
 
                     <li className={styles.navItem} onClick={closeMobileMenu}>
-                        <a href="#contactos" className={styles.contactBtn}>Contactos</a>
+                        <Link to="/contactos" className={styles.contactBtn}>Contactos</Link>
                     </li>
                 </ul>
             </nav>

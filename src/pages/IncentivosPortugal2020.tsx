@@ -1,7 +1,11 @@
 import styles from './IncentivosHero.module.css';
 import AnalysisForm from '../components/AnalysisForm';
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Lottie from 'lottie-react';
+import agricultureImg from '../assets/agriculture_pdr_2020.png';
+import CountUp from '../components/CountUp';
+import PageNavigator from '../components/PageNavigator';
 
 const LottiePlayer = ({ url, style }: { url: string; style?: React.CSSProperties }) => {
     const [animationData, setAnimationData] = useState(null);
@@ -19,10 +23,33 @@ const LottiePlayer = ({ url, style }: { url: string; style?: React.CSSProperties
 };
 
 const IncentivosPortugal2020: React.FC = () => {
+    const { hash } = useLocation();
+
+    useEffect(() => {
+        if (hash) {
+            const element = document.getElementById(hash.replace('#', ''));
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        }
+    }, [hash]);
+
+    const navSections = [
+        { id: 'custom-hero', label: 'Início' },
+        { id: 'inovacao', label: 'Inovação Produtiva' },
+        { id: 'empreendedorismo', label: 'Empreendedorismo' },
+        { id: 'internacionalizacao', label: 'Internacionalização' },
+        { id: 'pdr2020', label: 'PDR 2020' },
+        { id: 'producao-nacional', label: 'Produção Nacional' }
+    ];
+
     return (
         <div style={{ paddingTop: '0', fontFamily: "'Poppins', sans-serif" }}>
+            <PageNavigator sections={navSections} />
             {/* Custom Hero Section */}
-            <section className={styles.hero} id="topo">
+            <section className={styles.hero} id="custom-hero">
                 <div className={styles.bgShape1}></div>
                 <div className={styles.bgShape2}></div>
 
@@ -142,7 +169,7 @@ const IncentivosPortugal2020: React.FC = () => {
                         <div style={{ position: 'absolute', bottom: '-20px', left: '-20px', width: '150px', height: '150px', background: 'rgba(255,255,255,0.05)', borderRadius: '50%' }}></div>
 
                         <div style={{ fontSize: '1.2rem', fontWeight: '500', opacity: 0.9, marginBottom: '10px', position: 'relative' }}>FINANCIAMENTO A FUNDO PERDIDO</div>
-                        <div style={{ fontSize: '6rem', fontWeight: '800', lineHeight: 1, marginBottom: '10px', textShadow: '0 4px 10px rgba(0,0,0,0.2)', position: 'relative' }}>75%</div>
+                        <div style={{ fontSize: '6rem', fontWeight: '800', lineHeight: 1, marginBottom: '10px', textShadow: '0 4px 10px rgba(0,0,0,0.2)', position: 'relative' }}><CountUp end={75} suffix="%" /></div>
                         <p style={{ fontSize: '1.2rem', maxWidth: '300px', marginBottom: '30px', opacity: 0.9, position: 'relative' }}>
                             Recupere até três quartos do seu investimento sem ter de reembolsar.
                         </p>
@@ -170,7 +197,7 @@ const IncentivosPortugal2020: React.FC = () => {
             </section>
 
             {/* Empreendedorismo - Redesigned */}
-            <section style={{ padding: '100px 20px', backgroundColor: '#0f172a', position: 'relative', overflow: 'hidden' }}>
+            <section id="empreendedorismo" style={{ padding: '100px 20px', backgroundColor: '#0f172a', position: 'relative', overflow: 'hidden' }}>
                 {/* Background accents */}
                 <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0.1, pointerEvents: 'none', background: 'radial-gradient(circle at 80% 20%, #f59e0b 0%, transparent 40%)' }}></div>
                 <div style={{ position: 'absolute', bottom: 0, right: '50%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 60%)', transform: 'translateX(50%)', borderRadius: '50%', pointerEvents: 'none' }}></div>
@@ -277,7 +304,7 @@ const IncentivosPortugal2020: React.FC = () => {
             </section>
 
             {/* Internacionalização */}
-            <section style={{
+            <section id="internacionalizacao" style={{
                 padding: '100px 0',
                 width: '100%',
                 position: 'relative',
@@ -349,6 +376,189 @@ const IncentivosPortugal2020: React.FC = () => {
                 </div>
             </section>
 
+
+            {/* PDR 2020 Section */}
+            <section id="pdr2020" style={{ position: 'relative', overflow: 'hidden', color: 'white' }}>
+                <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url(${agricultureImg})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundAttachment: 'fixed',
+                    zIndex: -1
+                }}></div>
+
+                <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '100px 20px' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+                        <span style={{ backgroundColor: '#22c55e', color: 'white', padding: '5px 15px', borderRadius: '20px', fontSize: '0.9rem', fontWeight: 'bold', letterSpacing: '1px' }}>CANDIDATURAS ABERTAS</span>
+                        <h2 style={{ fontSize: '3.5rem', marginTop: '20px', marginBottom: '10px', textShadow: '0 2px 10px rgba(0,0,0,0.5)', color: 'white' }}>PDR 2020</h2>
+                        <p style={{ fontSize: '1.5rem', color: '#bbf7d0', maxWidth: '800px', margin: '0 auto' }}>Incentivos ao Investimento Agrícola e Jovens Agricultores</p>
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '30px', marginBottom: '60px' }}>
+
+                        {/* Jovens Agricultores Card */}
+                        <div style={{
+                            background: 'rgba(255, 255, 255, 0.1)',
+                            backdropFilter: 'blur(10px)',
+                            padding: '40px',
+                            borderRadius: '20px',
+                            border: '1px solid rgba(255,255,255,0.2)',
+                            boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
+                        }}>
+                            <div style={{ fontSize: '3rem', marginBottom: '20px' }}>🧑‍🌾</div>
+                            <h3 style={{ fontSize: '2rem', marginBottom: '15px', color: 'white' }}>Jovens Agricultores</h3>
+                            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '20px' }}>
+                                <span style={{ background: 'rgba(34, 197, 94, 0.2)', padding: '5px 10px', borderRadius: '5px', fontSize: '0.9rem' }}>&lt; 41 anos</span>
+                                <span style={{ background: 'rgba(34, 197, 94, 0.2)', padding: '5px 10px', borderRadius: '5px', fontSize: '0.9rem' }}>Início de Atividade</span>
+                            </div>
+                            <p style={{ color: '#dcfce7', marginBottom: '25px', lineHeight: '1.6' }}>
+                                Incentivo a fundo perdido para instalação de jovens agricultores.
+                            </p>
+                            <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4ade80', marginBottom: '5px' }}><CountUp end={20000} prefix="€" separator="." /></div>
+                            <p style={{ fontSize: '0.9rem', opacity: 0.8, marginBottom: '20px' }}>Prémio base + Majorações</p>
+
+                            <ul style={{ listStyle: 'none', padding: 0, color: '#f0fdf4' }}>
+                                <li style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}><span style={{ color: '#4ade80', marginRight: '10px' }}>✓</span> +€5.000 se investimento ≥ €80k</li>
+                                <li style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}><span style={{ color: '#4ade80', marginRight: '10px' }}>✓</span> +€5.000 em regime exclusividade</li>
+                            </ul>
+                        </div>
+
+                        {/* Investimento Exploração Card */}
+                        <div style={{
+                            background: 'rgba(255, 255, 255, 0.1)',
+                            backdropFilter: 'blur(10px)',
+                            padding: '40px',
+                            borderRadius: '20px',
+                            border: '1px solid rgba(255,255,255,0.2)',
+                            boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
+                        }}>
+                            <div style={{ fontSize: '3rem', marginBottom: '20px' }}>🚜</div>
+                            <h3 style={{ fontSize: '2rem', marginBottom: '15px', color: 'white' }}>Investimento Agrícola</h3>
+                            <p style={{ color: '#dcfce7', marginBottom: '20px', lineHeight: '1.6' }}>
+                                Modernize a sua exploração, aumente a produção e garanta a sustentabilidade.
+                            </p>
+
+                            <h4 style={{ color: '#86efac', textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '1px', marginBottom: '15px' }}>Investimentos Elegíveis:</h4>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                                {['Edifícios e Construções', 'Plantações Plurianuais', 'Sistemas de Rega', 'Máquinas e Equipamentos', 'Preparação de Terrenos'].map(item => (
+                                    <span key={item} style={{ background: 'rgba(255,255,255,0.15)', padding: '8px 15px', borderRadius: '50px', fontSize: '0.9rem' }}>{item}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Transformação Section within PDR */}
+                    <div style={{
+                        background: 'linear-gradient(90deg, #064e3b 0%, #065f46 100%)',
+                        borderRadius: '20px',
+                        padding: '40px',
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        alignItems: 'center',
+                        gap: '40px',
+                        border: '1px solid #10b981'
+                    }}>
+                        <div style={{ flex: '1 1 400px' }}>
+                            <h3 style={{ color: '#fff', fontSize: '2rem', marginBottom: '15px' }}>Indústria Agroalimentar</h3>
+                            <p style={{ fontSize: '1.1rem', color: '#d1fae5', marginBottom: '30px' }}>
+                                Apoios para transformação e comercialização de produtos agrícolas.
+                                Foco na eficiência, inovação e qualidade.
+                            </p>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                                <div>
+                                    <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#34d399' }}><CountUp end={50} suffix="%" /></div>
+                                    <div style={{ opacity: 0.8, fontSize: '0.9rem' }}>Taxa Máxima de Apoio</div>
+                                </div>
+                                <div>
+                                    <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#34d399' }}><CountUp end={4} suffix="M€" /></div>
+                                    <div style={{ opacity: 0.8, fontSize: '0.9rem' }}>Limite de Apoio</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style={{ flex: '1 1 300px', background: 'rgba(0,0,0,0.2)', padding: '30px', borderRadius: '15px' }}>
+                            <h4 style={{ marginBottom: '20px', color: '#6ee7b7' }}>Áreas de Aposta</h4>
+                            <ul style={{ listStyle: 'none', padding: 0 }}>
+                                <li style={{ padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>🏭 Construção e Requalificação</li>
+                                <li style={{ padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>⚡ Eficiência Energética</li>
+                                <li style={{ padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>💻 Software e Digitalização</li>
+                                <li style={{ padding: '10px 0' }}>📢 Marketing e Branding</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Apoio à Produção Nacional */}
+            <section id="producao-nacional" style={{ padding: '100px 20px', backgroundColor: '#f8fafc' }}>
+                <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+                        <div>
+                            <span style={{ color: '#2563eb', fontWeight: 'bold', letterSpacing: '1px', textTransform: 'uppercase' }}>Produção Nacional</span>
+                            <h2 style={{ fontSize: '2.5rem', color: '#0f172a', marginTop: '10px', marginBottom: '20px', lineHeight: '1.2' }}>
+                                Programa de Apoio à <br /><span style={{ color: '#2563eb' }}>Produção Nacional</span>
+                            </h2>
+                            <p style={{ color: '#64748b', fontSize: '1.1rem', marginBottom: '30px', lineHeight: '1.6' }}>
+                                Instrumento fundamental para estimular o investimento empresarial produtivo nas micro e pequenas empresas, com foco nos setores industrial e turismo.
+                            </p>
+
+                            <div style={{ display: 'flex', gap: '30px', marginBottom: '40px' }}>
+                                <div>
+                                    <div style={{ fontSize: '2.5rem', color: '#2563eb', fontWeight: 'bold' }}><CountUp end={60} suffix="%" /></div>
+                                    <div style={{ color: '#475569', fontSize: '0.9rem' }}>Fundo Perdido (Baixa Densidade)</div>
+                                </div>
+                                <div>
+                                    <div style={{ fontSize: '2.5rem', color: '#2563eb', fontWeight: 'bold' }}><CountUp end={50} suffix="%" /></div>
+                                    <div style={{ color: '#475569', fontSize: '0.9rem' }}>Restantes Regiões</div>
+                                </div>
+                            </div>
+
+                            <button style={{
+                                padding: '15px 30px',
+                                background: '#0f172a',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: '8px',
+                                fontSize: '1rem',
+                                fontWeight: '600',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '10px'
+                            }} onClick={() => window.location.href = '#contactos'}>
+                                Verificar Elegibilidade <span>→</span>
+                            </button>
+                        </div>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
+                            {[
+                                { icon: '🏭', title: 'Máquinas', desc: 'Aquisição de equipamentos produtivos' },
+                                { icon: '💻', title: 'Digital', desc: 'Equipamentos informáticos e Software' },
+                                { icon: '®️', title: 'Marcas', desc: 'Criação e registo de novas marcas' },
+                                { icon: '🌐', title: 'Web', desc: 'Lojas online e E-commerce' },
+                                { icon: '🚚', title: 'Transporte', desc: 'Material circulante (até 40k€)' },
+                                { icon: '🏗️', title: 'Obras', desc: 'Remodelação e adaptação' }
+                            ].map((item, i) => (
+                                <div key={i} style={{
+                                    background: 'white',
+                                    padding: '20px',
+                                    borderRadius: '12px',
+                                    boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)',
+                                    border: '1px solid #e2e8f0'
+                                }}>
+                                    <div style={{ fontSize: '1.5rem', marginBottom: '10px' }}>{item.icon}</div>
+                                    <div style={{ fontWeight: 'bold', color: '#1e293b', marginBottom: '5px' }}>{item.title}</div>
+                                    <div style={{ fontSize: '0.8rem', color: '#64748b' }}>{item.desc}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <AnalysisForm />
         </div>

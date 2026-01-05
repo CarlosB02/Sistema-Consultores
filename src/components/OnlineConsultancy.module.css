@@ -1,9 +1,16 @@
 .section {
-    padding: 6rem 2rem;
+    height: 100vh;
+    /* Forces the section to be exactly viewport height */
+    max-height: 100vh;
+    padding: 2rem;
+    /* Reduced padding to ensure fit */
     background-color: #f8fafc;
     position: relative;
     overflow: hidden;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Creative Background: Diagonal Tech Lines */
@@ -38,12 +45,18 @@
 
 .container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
+    /* Reduced margin */
 }
 
 .title {
@@ -60,19 +73,22 @@
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    /* Slightly smaller */
     color: #596e79;
     /* var(--color-text-light) */
     max-width: 600px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    gap: 3rem;
+    /* Slightly reduced gap */
+    align-items: stretch;
+    /* Stretch to make heights equal */
 }
 
 .imageWrapper {
@@ -83,6 +99,10 @@
     /* Blue-ish shadow */
     transform: perspective(1000px) rotateY(5deg);
     transition: transform 0.5s ease;
+    height: 100%;
+    /* Fill grid cell height */
+    min-height: 400px;
+    /* Minimum height to preserve look */
 }
 
 .imageWrapper:hover {
@@ -91,7 +111,8 @@
 
 .consultancyImage {
     width: 100%;
-    height: 400px;
+    height: 100%;
+    /* Fill wrapper height */
     object-fit: cover;
     display: block;
 }
@@ -99,7 +120,9 @@
 .features {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    justify-content: space-between;
+    /* Distribute space evenly */
+    gap: 1.5rem;
 }
 
 .featureItem {
