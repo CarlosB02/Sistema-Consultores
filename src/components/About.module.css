@@ -7,6 +7,12 @@
     z-index: 1;
 }
 
+@media (max-width: 768px) {
+    .section {
+        padding: 4rem 1.5rem;
+    }
+}
+
 /* Creative Geometric Background */
 .section::before {
     content: '';
@@ -69,7 +75,7 @@
 }
 
 .title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     font-weight: 700;
     color: #1a202c;
     line-height: 1.2;
