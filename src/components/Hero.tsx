@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Hero.module.css';
+import HeroGraph from './HeroGraph';
 
 const Hero: React.FC = () => {
     return (
@@ -15,11 +16,8 @@ const Hero: React.FC = () => {
                 <div className={styles.grid}>
                     {/* Left: Text Content */}
                     <div className={styles.textContent}>
-                        <div className={styles.badgeWrapper}>
-                            <span className={styles.badge}>Inovação & Estratégia</span>
-                        </div>
                         <h1 className={styles.title}>
-                            <span className={styles.outlineText}>Excelência</span>
+                            <span className={styles.outlineText}>Crescimento</span>
                             <span className={styles.gradientText}>Sem Limites</span>
                         </h1>
                         <p className={styles.subtitle}>
@@ -49,11 +47,7 @@ const Hero: React.FC = () => {
                                 </div>
                                 <div className={styles.cardBody}>
                                     <div className={styles.chartArea}>
-                                        {/* Abstract Chart Representation */}
-                                        <div className={styles.bar1}></div>
-                                        <div className={styles.bar2}></div>
-                                        <div className={styles.bar3}></div>
-                                        <div className={styles.growthLine}></div>
+                                        <HeroGraph />
                                     </div>
                                     <div className={styles.cardStat}>
                                         <span className={styles.trendUp}>▲ 124%</span>

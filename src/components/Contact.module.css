@@ -107,6 +107,17 @@
     margin-bottom: 1.5rem;
 }
 
+.formRow {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.formRow .formGroup {
+    flex: 1;
+    margin-bottom: 0;
+    /* Remove bottom margin for inner groups to align properly */
+}
+
 .formGroup label {
     display: block;
     margin-bottom: 0.5rem;
@@ -166,6 +177,13 @@
 
     .infoTitle {
         font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .formRow {
+        flex-direction: column;
+        gap: 1.5rem;
     }
 }
 

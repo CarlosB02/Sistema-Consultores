@@ -4,7 +4,9 @@ import styles from './Contact.module.css';
 const Contact: React.FC = () => {
     const [formData, setFormData] = useState({
         name: '',
+        subject: '',
         email: '',
+        phone: '',
         message: ''
     });
 
@@ -18,7 +20,7 @@ const Contact: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         alert('Mensagem enviada! (Simulação)');
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', subject: '', email: '', phone: '', message: '' });
     };
 
     return (
@@ -77,15 +79,41 @@ const Contact: React.FC = () => {
                                 required
                             />
                         </div>
+                        <div className={styles.formRow}>
+                            <div className={styles.formGroup}>
+                                <label htmlFor="email">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    placeholder="seu@email.com"
+                                    required
+                                />
+                            </div>
+                            <div className={styles.formGroup}>
+                                <label htmlFor="phone">Telefone</label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    placeholder="912 345 678"
+                                    required
+                                />
+                            </div>
+                        </div>
                         <div className={styles.formGroup}>
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="subject">Assunto</label>
                             <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                value={formData.subject}
                                 onChange={handleChange}
-                                placeholder="seu@email.com"
+                                placeholder="Assunto da mensagem"
                                 required
                             />
                         </div>

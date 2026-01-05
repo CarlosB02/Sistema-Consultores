@@ -35,7 +35,7 @@ const AnimatedDashboard: React.FC = () => {
                             <div className={styles.chartHeader}>
                                 <span className={styles.chartTitle}>Crescimento Anual</span>
                                 <span className={styles.chartValue}>
-                                    <CountUp end={127} prefix="+" suffix="%" duration={2.5} />
+                                    <CountUp end={127} prefix="+" suffix="%" duration={2500} />
                                 </span>
                             </div>
                             <div className={styles.chartArea}>
@@ -136,7 +136,7 @@ const AnimatedDashboard: React.FC = () => {
                             <div className={styles.progressItem}>
                                 <div className={styles.progressHeader}>
                                     <span>Pessoal</span>
-                                    <span><CountUp end={45} suffix="%" duration={1.5} delay={0} /></span>
+                                    <span><CountUp end={45} suffix="%" duration={1500} delay={0} /></span>
                                 </div>
                                 <div className={styles.progressTrack}>
                                     <div className={styles.progressBar} style={{ width: '100%', transform: 'scaleX(0.45)', background: '#3182ce', animationDelay: '0s' }}></div>
@@ -145,7 +145,7 @@ const AnimatedDashboard: React.FC = () => {
                             <div className={styles.progressItem}>
                                 <div className={styles.progressHeader}>
                                     <span>Fornecedores</span>
-                                    <span><CountUp end={30} suffix="%" duration={1.5} delay={0.2} /></span>
+                                    <span><CountUp end={30} suffix="%" duration={1500} delay={0.2} /></span>
                                 </div>
                                 <div className={styles.progressTrack}>
                                     <div className={styles.progressBar} style={{ width: '100%', transform: 'scaleX(0.30)', background: '#ed8936', animationDelay: '0.2s' }}></div>
@@ -154,7 +154,7 @@ const AnimatedDashboard: React.FC = () => {
                             <div className={styles.progressItem}>
                                 <div className={styles.progressHeader}>
                                     <span>Impostos</span>
-                                    <span><CountUp end={25} suffix="%" duration={1.5} delay={0.4} /></span>
+                                    <span><CountUp end={25} suffix="%" duration={1500} delay={0.4} /></span>
                                 </div>
                                 <div className={styles.progressTrack}>
                                     <div className={styles.progressBar} style={{ width: '100%', transform: 'scaleX(0.25)', background: '#48bb78', animationDelay: '0.4s' }}></div>

@@ -279,29 +279,7 @@
     position: relative;
 }
 
-.bar1,
-.bar2,
-.bar3 {
-    width: 40px;
-    border-radius: 4px;
-    background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
-}
 
-.bar1 {
-    height: 40%;
-    animation: growBar 2s infinite alternate;
-}
-
-.bar2 {
-    height: 70%;
-    animation: growBar 2.5s infinite alternate 0.5s;
-}
-
-.bar3 {
-    height: 100%;
-    background: linear-gradient(to top, #4f46e5, #06b6d4);
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
-}
 
 .cardStat {
     display: flex;
@@ -368,15 +346,7 @@
     }
 }
 
-@keyframes growBar {
-    0% {
-        transform: scaleY(0.95);
-    }
 
-    100% {
-        transform: scaleY(1);
-    }
-}
 
 /* Responsive */
 @media (max-width: 992px) {
