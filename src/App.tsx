@@ -8,10 +8,12 @@ import Certificacoes from './pages/Certificacoes';
 import Contactos from './pages/Contactos';
 import OfertaFormativa from './pages/OfertaFormativa';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <div className="App">
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
