@@ -1,11 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import styles from './Hero.module.css';
 import HeroGraph from './HeroGraph';
 import Reveal from './Reveal';
 
 const Hero: React.FC = () => {
-    const navigate = useNavigate();
 
     return (
         <section className={styles.hero} id="inicio">
